@@ -24,6 +24,7 @@ from .ERData import (
     er_regions,
     er_entrances,
     minit_target_group_lookup,
+    minit_target_group_lookup_directional,
     er_static_connections,
     door_names,
 )
@@ -429,11 +430,10 @@ class MinitWorld(World):
             MinitRules(self).set_Minit_rules()
         else:
             ER_MinitRules(self).set_Minit_rules()
-
             self.output_connections += randomize_entrances(
                 world=self,
                 coupled=True,
-                target_group_lookup=minit_target_group_lookup,
+                target_group_lookup=minit_target_group_lookup_directional if self.options.directional_er == "on" else minit_target_group_lookup,
                 preserve_group_order=False
                 ).pairings
             # visualize_regions(

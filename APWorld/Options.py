@@ -104,6 +104,14 @@ class MinHP(Toggle):
     """
     display_name = "MinHP"
 
+class DirectionalER(Toggle):
+    """
+    Forces entrance randomization to match direction (i.e. 
+    west entrances will always send you to an east exit). 
+    Has no effect if entrance randomization is disabled.
+    """
+    display_name = "DirectionalER"
+
 
 class DamageBoosts(Toggle):
     """
@@ -128,6 +136,7 @@ class MinitGameOptions(PerGameCommonOptions):
     er_option: EntranceRando
     min_hp: MinHP
     damage_boosts: DamageBoosts
+    directional_er: DirectionalER
 
 
 # add options
